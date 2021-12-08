@@ -1,4 +1,14 @@
-const bogue =document.querySelectorAll(".btn");
-bogue.forEach((box) =>{
-    console.log(box)
-})
+const buttons=document.querySelectorAll(".btn"), result= document.getElementById("result");
+buttons.forEach((button) =>{
+     button.addEventListener('click', (e)=>{
+         result.textContent+=e.target.id;
+     });
+});
+
+equal.addEventListener("click",()=>{
+    result.textContent=eval(result.textContent);
+});
+
+clear.addEventListener("click", ()=>{
+    result.textContent = " ";
+});
