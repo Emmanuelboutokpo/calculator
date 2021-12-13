@@ -72,3 +72,39 @@ h3{
     margin-top: 20px;
     color: rgba(128, 128, 128, 0.555);
 }
+
+/* Text typing*/
+body{
+    min-height: 100vh;
+    font-family: Verdana, "Geneva", Tahoma, sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    font-size: 2rem;
+}
+
+#target{
+    display: flex;
+    margin-left: 1rem;
+    position: relative;
+}
+
+/*CSS to make the cursor linear*/
+#target::after{
+    content: "";
+    height: 3rem;
+    width: 5px;
+    background: #000;
+    transform: translateX(-4px);
+    animation: anim 0.8s linear infinite;
+}
+
+@keyframes anim {
+    50%{
+        opacity: 0.1;
+    }
+    100%{
+        opacity: 1;
+    }
+}
