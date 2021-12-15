@@ -78,3 +78,41 @@ const loop=()=>{
   }, 50);
 }
 loop();
+
+/*Générateur de Mot de passe*/
+const dataLowercase = "azertyuiopqsdfghjklmwxcvbn";
+const dataUppercase = dataLowercase.toUpperCase();
+const dataNumbers = "0123456789";
+const dataSymbols = "$^*ù_-!:;,&é'\"{#~[]|}(=)è``%+-/.";
+
+const rangeLength =document.getElementById("password-length");
+const passwordOutput =document.getElementById("password-output");
+
+generateButton.addEventListener("click", ()=>{
+   let data =[];
+  let password="";
+
+   if(lowercase.checked) data.push(...dataLowercase);
+   if(uppercase.checked) data.push(...dataUppercase);
+   if(number.checked) data.push(...dataNumbers);
+   if(symbols.checked) data.push(...dataSymbols);
+
+   if (data.length === 0){
+    alert("Veuillez choisir le bon paramètre");
+    return;
+}
+
+   for (let i = 0;  i < rangeLength.value; i++ ) {
+      password += data[Math.floor(Math.random() * data.length)];
+   }
+   passwordOutput.value=password;
+   generateButton.textContent ="Copie!";
+
+   setTimeout(() => {
+      generateButton.textContent ="Générer le mot de passe"; 
+   }, 2000);
+
+   passwordOutput.select();
+   document.execCommand("copy");
+});
+
