@@ -204,6 +204,19 @@ const confirmChecker = (value) =>{
     }
 };
 
+displayPassword.addEventListener("click", ()=>{
+    const displays = document.getElementById("password"),display=document.getElementById("confirm");
+    if ((displays.type === "password") && (display.type ==="password") )
+    {
+        displays.type="text";            
+        display.type="text";
+    }
+ else {
+        displays.type="password";
+        display.type="password";
+    }
+});
+
 inputs.forEach((input)=>{
     input.addEventListener('input',(e)=>{
          switch (e.target.id) {
