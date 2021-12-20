@@ -265,3 +265,34 @@ inputs.forEach((input)=>{
          alert("veuillez remplir tout les champs!")
      }
  })
+
+
+ /* Countdown timer*/
+ const forms = document.querySelector("form");
+ forms.addEventListener("submit", (e)=>{
+     e.preventDefault();
+     const  countdown = ()=>{
+        const dates = new Date(document.getElementById("checkdate").value);
+        const newYearsValide = new Date(dates);
+         const  currentDate = new Date();
+         const totalSecond = Math.floor((newYearsValide - currentDate)/1000);
+        
+         const spanDays = document.getElementById("days");
+        const spanHours = document.getElementById("hours");
+        const spanMins = document.getElementById("mins");
+        const spanSeconds = document.getElementById("seconds");
+     
+        const days = Math.floor(totalSecond/86400);
+        const hours = Math.floor((totalSecond/ 3600) % 24);
+        const minutes = Math.floor((totalSecond/60)%60);
+        const seconds = Math.floor(totalSecond%60);
+        
+        spanDays.textContent = days;
+        spanHours.textContent = hours;
+        spanMins.textContent = minutes;
+        spanSeconds.textContent = seconds;
+     
+    }
+    countdown();
+    setInterval(countdown, 1000);
+})
