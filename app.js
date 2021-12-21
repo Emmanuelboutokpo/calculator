@@ -296,3 +296,119 @@ inputs.forEach((input)=>{
     countdown();
     setInterval(countdown, 1000);
 })
+
+/* QUESTIONNAIRE */
+
+const quizData =[
+    {
+        question : "How old is Florin ?",
+         a: "10",
+         b: "17",
+         c: "26",
+         d: "110",
+         correct : "c"
+    },
+
+    {
+       question : "What is the best programming language in 2019 ?",
+        a: "Java",
+        b: "C",
+        c: "JavaScript",
+        d: "Python",
+        correct : "c"
+   },
+
+   {
+       question : "Who is the president of  US?",
+        a: "BOUTOKPO Emmanuel",
+        b: "Donald TRUMP",
+        c: "Ivan SALDANO",
+        d: "YAYI Boni",
+        correct : "b"
+   },
+
+   {
+       question : "What does HTML stand for?",
+        a: "Hypertext Markup Language",
+        b: "Cascading Object Sheet",
+        c: "Jason Object Notation",
+        d: "Helicopters Terminals Motorola Lamborginis",
+        correct : "a"
+   },
+
+   {
+       question : "What year was JavaScript launched ?",
+        a: "2022",
+        b: "2000",
+        c: "1994",
+        d: "1995",
+        correct : "d"
+   },
+];
+
+const answersEls = document.querySelectorAll(".answer");
+const quiz = document.getElementById("quiz");
+
+const questionEl = document.getElementById("question");
+const buttons= document.getElementById("submit");
+
+const a_text = document.getElementById("a_text");
+const b_text = document.getElementById("b_text");
+const c_text = document.getElementById("c_text");
+const d_text = document.getElementById("d_text");
+
+let currentQuiz = 0;
+let score = 0 ;
+
+const deselectAnswer = () =>{
+   answersEls.forEach(answersEl =>{
+       answersEl.checked = false;
+   });
+}
+
+const loadQuiz =()=>{
+   deselectAnswer();
+    const currentQuizDate = quizData[currentQuiz];
+    
+    questionEl.innerText = currentQuizDate.question;
+    
+    a_text.innerText = currentQuizDate.a;
+    b_text.innerText = currentQuizDate.b;
+    c_text.innerText = currentQuizDate.c;
+    d_text.innerText = currentQuizDate.d;
+   }
+   loadQuiz();
+   
+   const getSelected = ()=>{
+     let answer = undefined;
+
+       answersEls.forEach(answersEl =>{
+           if (answersEl.checked) {
+           answer = answersEl.id;
+           } 
+       });
+        return answer;
+   }
+
+
+   buttons.addEventListener("click", ()=>{
+       const answer=getSelected();
+
+       if (answer)
+       {  
+           if (answer === quizData[currentQuiz].correct) {
+               score++;
+           }
+           currentQuiz++;      
+           if (currentQuiz < quizData.length) 
+            {
+                loadQuiz();
+            }
+          else
+           {
+                quiz.innerHTML =`<h2> You anwser correctly at ${score}/${quizData.length} questions.</h2>`
+            }
+       } 
+
+   })
+   
