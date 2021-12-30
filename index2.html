@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Countdown timer</title>
+    <link rel="stylesheet" href="style2.css">
+</head>
+<body> 
+    <div class="grandContainer">
+         <h1>Calcul de résistance électrique</h1>
+         <label for="fi_chiffre">Anneau 1</label>
+          <select name="" class="chiffre1" id="fi_chiffre">
+             <option value=""></option>
+             <option value="noir">Noir</option>
+             <option value="marron">Marron</option>
+             <option value="rouge">Rouge</option>
+             <option value="orange">Orange</option>
+             <option value="jaune">Jaune</option>
+             <option value="vert">Vert</option>
+             <option value="bleu">Bleu</option>
+             <option value="violet">Violet</option>
+             <option value="gris">Gris</option>
+             <option value="blanc">Blanc</option>
+          </select>
+
+          <label for="se_chiffre">Anneau 2</label> 
+          <select name=""  class="chiffre2" id="se_chiffre">
+             <option value=""></option>
+             <option value="noir">Noir</option>
+             <option value="marron">Marron</option>
+             <option value="rouge">Rouge</option>
+             <option value="orange">Orange</option>
+             <option value="jaune">Jaune</option>
+             <option value="vert">Vert</option>
+             <option value="bleu">Bleu</option>
+             <option value="violet">Violet</option>
+             <option value="gris">Gris</option>
+             <option value="blanc">Blanc</option>
+       </select>
+
+       <label for="t_chiffre">Anneau 3</label> 
+       <select name=""  class="chiffre2"id="t_chiffre">
+        <option value=""></option>
+        <option value="noir">Noir</option>
+        <option value="marron">Marron</option>
+        <option value="rouge">Rouge</option>
+        <option value="orange">Orange</option>
+        <option value="jaune">Jaune</option>
+        <option value="vert">Vert</option>
+        <option value="bleu">Bleu</option>
+        <option value="violet">Violet</option>
+        <option value="gris">Gris</option>
+        <option value="blanc">Blanc</option>
+      </select>
+
+        <div class="container">
+            <span class="a" id="a"></span>
+            <span class="b" id="b"></span>
+            <span class="c" id="c"></span>
+            <span class="d" id="d"></span>
+            <span class="e" id="e"></span>
+            <span class="f" id="f"></span>
+        </div>
+        <hr class="hr">
+        
+      <label for="multiple">Multiplicateur</label> 
+        <select name=""  class="chiffre3"id="multiple">
+            <option value=""></option>
+            <option value="argent">Argent</option>
+            <option value="or">Or</option>
+            <option value="noir">Noir</option>
+            <option value="marron">Marron</option>
+            <option value="rouge">Rouge</option>
+            <option value="orange">Orange</option>
+            <option value="jaune">Jaune</option>
+            <option value="vert">Vert</option>
+            <option value="bleu">Bleu</option>
+            <option value="violet">Violet</option>
+       </select>
+
+       
+      <label for="tolerance">Tolérance</label> 
+       <select name="" class="chiffre5" id="tolerance">
+        <option value=""></option>
+        <option value="argent">Argent</option>
+        <option value="or">Or</option>
+        <option value="noir">Noir</option>
+        <option value="marron">Marron</option>
+        <option value="rouge">Rouge</option>
+        <option value="vert">Vert</option>
+        <option value="bleu">Bleu</option>
+        <option value="violet">Violet</option>
+        <option value="gris">Gris</option>
+    </select>
+
+    <label for="coef">Coéf. Temp:</label> 
+    <select name="" class="chiffre6" id="coef">
+        <option value=""></option>
+        <option value="marron">Marron</option>
+        <option value="rouge">Rouge</option>
+        <option value="orange">Orange</option>
+        <option value="jaune">Jaune</option>
+        <option value="bleu">Bleu</option>
+        <option value="violet">Violet</option>
+        <option value="blanc">Blanc</option>
+    </select>
+   
+      <div class="result">
+          <label for="">Résistance :</label>
+                <input type="text" class="res" name="" id="display_res">
+              <select name="" class="chiffre7" id="reponse">
+                  <option value=""></option>
+                 <option value="ohms">Ω</option>
+                 <option value="kilo">KΩ</option>
+                 <option value="mega">MΩ</option>
+                 <option value="giga">GΩ</option>
+           </select>
+           <div>
+               <button id="clear">Recommencer</button>
+           </div>
+      </div>
+    </div>
+   
+    
+    <script src="app2.js"></script>
+</body>
+</html>
