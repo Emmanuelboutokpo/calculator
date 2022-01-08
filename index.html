@@ -140,6 +140,47 @@
     </div>
     <button id="submit">Validate</button>
 </div> 
+<h2>CALCULATEUR DE RESISTANCE</h2>
+
+<div class="container">
+    <h1>Calculateur de résistances série et parallèle</h1>
+    <p>Cet outil calcule la valeur de résistance globale pour plusieurs résistances connectées en série ou en parallèle.
+    </p>
+
+    <div class="association">
+         <button  id="res1" class="asso_serie">Résistance parallèle</button>
+         <button id="res2" class="asso_parallele">Résistance série</button>
+    </div>
+
+<div class="paralleleContainer">
+    <h3 id="type" class="type">La résistance équivalente </h3>
+   <div class="reponse" id="sommes"></div>
+    <div id="resis">
+        <label for="r1" id="resistor">R1</label><br>
+        <input type="text" placeholder="Entrez la valeur de la résistance..." name="" id="r1">
+        <select name="unite" id="unite">
+            <option value=""></option>
+            <option value="ohms">Ω</option>
+            <option value="kilo">kΩ</option>
+            <option value="mega">MΩ</option>
+        </select>
+    </div>
+
+   <div id="resis">
+       <label for="r2" id="resistor">R2</label><br>
+       <input type="text"  placeholder="Entrez la valeur de la résistance..." name="" id="r2">
+        <select name="unite" id="unite">
+            <option value=""></option>
+            <option value="ohms">Ω</option>
+            <option value="kilo">kΩ</option>
+            <option value="mega">MΩ</option>
+        </select>
+    </div>
+    
+    <button id="valeur" class="resultat">Résistance équivalente</button>
+    <button id="add" class="ajout">Ajouter une résistance</button>        
+</div>
+</div>
 <script src="app.js"></script>
 </body>
 </html>

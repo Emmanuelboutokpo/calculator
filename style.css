@@ -547,3 +547,184 @@ body{
   button:hover{
     background-color: #724885ea;
   }
+
+  /*CALCULATEUR DE RESISTANCE*/
+  *{
+    margin: 0;
+}
+
+body{
+    background-image: linear-gradient(315deg, #b8c6db 0%, #f5f7fa 75%);
+    background-size: cover;
+    background-position: center center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+   min-height: 100vh;
+    overflow: scroll;
+   }
+
+   .container{
+    margin:  10px;
+    text-align: justify;
+    padding: 24px 10px 10px;
+    border-radius: 5px;
+    width: 90%;
+    max-width: 600px;
+    box-shadow: 3px 4px 10px 0px  #2828296e;
+   }
+
+   .association{
+       background:  #5c677710;
+       height: 60px;
+       display: flex;
+       justify-content: center;
+       align-items: center;
+       border-radius: 30px;
+       margin-bottom: 15px;
+       border: 1px solid transparent;
+   }
+
+   .asso_serie{
+       height: 40px;
+       width: 47%;
+       color: rgba(0, 0, 0, 0.35);
+       border-radius: 30px;
+       margin-right: 5px;
+       background: rgb(255, 255, 255);
+    border: 1px solid transparent;
+   }
+
+   .asso_serie:focus, .asso_parallele:focus{
+       border: 2px solid rgb(245, 15, 15);
+       color: rgb(0, 0, 0);
+   }
+
+   .asso_parallele{
+    height: 40px;
+    color: rgba(0, 0, 0, 0.35);
+    width: 47%;
+    margin-left: 5px;
+    background: rgb(255, 255, 255);
+    border-radius: 30px;
+    border: 1px solid transparent;
+}
+
+    .reponse{       
+        border: 2px solid black;
+        border-radius: 5px;
+        padding: 6px;
+        width: 96.5%;
+        height: 50px;
+        margin-bottom: 20px;
+         font-size: 1.5rem;
+         font-weight: bold;
+    }
+
+    .reponse:hover{
+        border: 2px solid rgb(243, 8, 8);
+        color: rgb(243, 8, 8);
+       box-shadow: 3px 4px 10px 0px  #2828296e;
+    }
+
+   p{
+       font-size: 17px;
+       margin-bottom: 15px;
+   }
+
+   h1{
+    text-align: center;
+    margin-bottom: 10px;
+   }
+
+   #serie{
+       margin-bottom: 15px;
+       margin-left: 10px;
+   }
+
+   #resistor{
+     font-weight: bold;
+   }
+
+   #resistor_label{
+    margin-right: 5px;
+    font-weight: bold;
+   }
+
+   .united{
+      margin-left: -1.5px;
+   }
+
+.radios{
+    margin-left: 5px;
+    height: 13px;
+   }
+
+   label{
+       margin-left: 5px;  
+   }
+
+   .type{
+       margin:0 5px 20px;
+   }
+
+   input{
+     margin-bottom: 15px;
+     margin-top: 5px;
+     padding-left: 5px;
+     height: 35px;
+     border-radius: 3px;
+     width: 90%;
+     border: 1px solid rgba(63, 63, 63, 0.385);
+   }
+
+.ajout{
+    height: 30px;
+    color: rgb(255, 255, 255);
+    width: 35%;
+    background: rgb(230, 20, 20);
+    margin-left: 5px;
+    font-weight: bold;
+    border-radius: 30px;
+    border: 1px solid transparent;
+}
+
+.ajout:hover, .resultat:hover{
+    background: rgb(126, 9, 9);
+    transition: 1.2s;
+    cursor: pointer;
+}
+
+.resultat{
+    height: 30px;
+    color: rgb(255, 255, 255);
+    width: 35%;
+    background: rgb(230, 20, 20);
+    margin-left: 5px;
+    font-weight: bold;
+    border-radius: 30px;
+    border: 1px solid transparent;
+}
+
+.sup{
+    background: rgb(230, 20, 20);
+    border: 1px solid transparent;
+    color: rgb(255, 255, 255);
+    border-radius: 5px;
+    margin-left: 95px;
+}
+.sup:hover{
+    background: rgb(126, 9, 9);
+    transition: 1.2s;
+    cursor: pointer;
+}
+   select{
+    margin-bottom: 15px;
+    height: 39px;
+    border-radius: 3px;
+    margin-left: -5px;
+    border: 1px solid rgba(63, 63, 63, 0.385);
+    background:#accbee36;
+  }

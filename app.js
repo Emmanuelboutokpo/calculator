@@ -411,4 +411,333 @@ const loadQuiz =()=>{
        } 
 
    })
+   /**CALCULATEUR DE RESISTANCE */
+   const parallele= document.getElementById("res1");
+const serie= document.getElementById("res2");
+
+const type = document.getElementById("type");
+const sommes = document.getElementById("sommes");
+const inpts= document.querySelectorAll('input[type="text"]');
+ 
+const unites =document.querySelectorAll('#unite');
+let somme=0, grandeur = 0;
+let som=0,div =0,division=0, grande = 0;
+
+let resistance_count = 2;
+
+
+
+serie.addEventListener("click", ()=>{
+  type.textContent = "Résistance série";
+  valeur.textContent = "Résistance série totale";
+  const inputs= document.querySelectorAll('input[type="text"]');
+  add.addEventListener("click", ()=>{
+
+    resistance_count = resistance_count + 1;
+    
+    // on click we will add an input under the last
+    const parent_box = document.querySelector(".paralleleContainer");
+    const last_box = document.querySelector("#valeur");
+    
+    const box = document.createElement("div");
+    box.id = "resis";
+    parent_box.insertBefore(box, last_box);
+    
+  const labelle = document.createElement("label");
+  labelle.id= "resistor_label";
+  const text =  document.createTextNode(`R${resistance_count}`)
+  labelle.setAttribute("for",`r${resistance_count}`);
+  box.appendChild(labelle);
+  labelle.appendChild(text);
+
+  const supprime  = document.createElement("button");
+  supprime.classList.add("sup");
+  supprime.id = "remve";
+  supprime.style.marginLeft = "25rem";
+  const supprime_text = document.createTextNode('supprimer cette résistance');
+  supprime.appendChild(supprime_text);
+  labelle.appendChild(supprime);
+
+  const haut_label = document.createElement("br");
+  labelle.appendChild(haut_label);
+
+  const inpu = document.createElement("input");
+  inpu.setAttribute("type", "text");
+  inpu.setAttribute("name", " ");
+  inpu.setAttribute("placeholder", "Entrez la valeur de la résistance...")
+  inpu.id=`r${resistance_count}`;
+  box .appendChild(inpu);
+  
+  const selections = document.createElement("select");
+  selections.id="selectionaly";
+  selections.setAttribute("name", "unite");
+  selections.setAttribute("class", "united");
+  box .appendChild(selections);
+  
+  const option1 = document.createElement("option");
+  option1.setAttribute("value", " ");
+  selections .appendChild(option1);
+  
+  const option2 = document.createElement("option");
+  option2.setAttribute("value", "ohms");
+  selections .appendChild(option2);
+  
+  const text1 =  document.createTextNode("Ω")
+  option2.appendChild(text1);
+  
+  const option3 = document.createElement("option");
+  option3.setAttribute("name", "kilo");
+  selections .appendChild(option3);
+  
+  const text2 =  document.createTextNode("KΩ")
+  option3.appendChild(text2);
+  
+  const option4 = document.createElement("option");
+  option4.setAttribute("value", "mega");
+  selections .appendChild(option4);
+  
+  const text3 =  document.createTextNode("MΩ")
+  option4.appendChild(text3);
+
+const selectional =document.querySelectorAll('#selectionaly');
+ 
+
+selectional.forEach(selectiond=> {
+  //console.log(selection.selectedIndex);
+ 
+  selectiond.addEventListener('change',(e)=>{
+ 
+ switch (e.target.options[selectiond.selectedIndex].value) {
+
+   case "ohms":
+               grandeur= somme + " Ω";
+      break; 
+
+       case "kilo":
+           grandeur= somme*1000 + " Ω" ;
+          break; 
+
+          case "mega":
+           grandeur= somme*1000000 + " Ω";
+          break; 
+
+       default:  null;
+          break; 
+    }
+})
+});
+inpu.addEventListener("blur", ()=>{
+      
+  somme  += parseFloat(inpu.value);
+
+});
+
+const deletes = document.querySelectorAll("#remve");
+
+deletes.forEach(deleted =>{
+    deleted.addEventListener("click", ()=>{
+       while ( inpu.id >="r3") {      
+            box.remove();
+            resistance_count;
+            inpu.id = "r2"
+        }
+    })
+})
+});
+
+  inputs.forEach(input => {
+      input.addEventListener("blur", ()=>{
+           somme +=parseFloat(input.value) ;
+    });
    
+});  
+
+unites.forEach(unite=> {
+   
+   unite.addEventListener('change',(e)=>{
+  
+  switch (e.target.options[unite.selectedIndex].value) {
+
+    case "ohms":
+                grandeur= somme + " Ω";
+       break; 
+
+        case "kilo":
+            grandeur= somme*1000 + " Ω" ;
+           break; 
+
+           case "mega":
+            grandeur= somme*1000000 + " Ω";
+           break; 
+
+        default:  null;
+           break; 
+     }
+})
+});
+
+valeur.addEventListener("click", ()=>{
+    if (!isNaN (somme)){
+        sommes.textContent = grandeur;
+    }
+    else{
+        alert("Veuillez entrer un chiffre, en utilisant le . comme séparateur")
+    }
+})
+
+});
+ 
+
+parallele.addEventListener("click", ()=>{
+    type.textContent = "Résistance parallèle";
+    valeur.textContent = "Résistance parallèle totale";
+    add.addEventListener("click", ()=>{
+
+        resistance_count = resistance_count + 1;
+        
+        const parent_box = document.querySelector(".paralleleContainer");
+        const last_box = document.querySelector("#valeur");
+        
+        const box = document.createElement("div");
+        box.id = "resis";
+        parent_box.insertBefore(box, last_box);
+        
+        const labelle = document.createElement("label");
+      labelle.id= "resistor_label";
+      const text =  document.createTextNode(`R${resistance_count}`)
+      labelle.setAttribute("for",`r${resistance_count}`);
+      
+      box.appendChild(labelle);
+      labelle.appendChild(text);
+      
+      const supprime  = document.createElement("button");
+      supprime.classList.add("sup");
+      supprime.id = "remve";
+      supprime.style.marginLeft = "25rem";
+      const supprime_text = document.createTextNode('supprimer cette résistance');
+      supprime.appendChild(supprime_text);
+      labelle.appendChild(supprime);
+
+      const haut_label = document.createElement("br");
+      labelle.appendChild(haut_label);
+
+      const inpu = document.createElement("input");
+      inpu.setAttribute("type", "text");
+      inpu.setAttribute("name", " ");
+      inpu.id=`r${resistance_count}`;
+      box .appendChild(inpu);
+      
+      const selections = document.createElement("select");
+      selections.id="selectionaly";
+      selections.setAttribute("name", "unite");
+      selections.setAttribute("class", "united");
+      box .appendChild(selections);
+      
+      const option1 = document.createElement("option");
+      option1.setAttribute("value", " ");
+      selections .appendChild(option1);
+      
+      const option2 = document.createElement("option");
+      option2.setAttribute("value", "ohms");
+      selections .appendChild(option2);
+      
+      const text1 =  document.createTextNode("Ω")
+      option2.appendChild(text1);
+      
+      const option3 = document.createElement("option");
+      option3.setAttribute("name", "kilo");
+      selections .appendChild(option3);
+      
+      const text2 =  document.createTextNode("KΩ")
+      option3.appendChild(text2);
+      
+      const option4 = document.createElement("option");
+      option4.setAttribute("value", "mega");
+      selections .appendChild(option4);
+      
+      const text3 =  document.createTextNode("MΩ")
+      option4.appendChild(text3);
+
+  const selectional =document.querySelectorAll('#selectionaly');
+  
+  
+  selectional.forEach(selectiond=> {
+
+      selectiond.addEventListener('change',(e)=>{
+     
+     switch (e.target.options[selectiond.selectedIndex].value) {
+  
+       case "ohms":
+              grande= division + " Ω";
+          break; 
+  
+           case "kilo":
+               grande= division*1000 + " Ω" ;
+              break; 
+   
+              case "mega":
+               grande= division*1000000 + " Ω";
+              break; 
+   
+           default:  null;
+              break; 
+        }
+   })
+   });
+   const deletes = document.querySelectorAll("#remve");
+
+deletes.forEach(deleted =>{
+    deleted.addEventListener("click", ()=>{
+       while ( inpu.id >="r3") {      
+            box.remove();
+            inpu.id = "r2";
+            resistance_count = 2 ;
+        }
+    })
+})
+
+  inpu.addEventListener("blur", ()=>{    
+      som += parseFloat(1/inpu.value);
+      div =(1/som).toFixed(5);
+      division = parseFloat(div)
+      console.log(division)
+  });
+  })
+    inpts.forEach(inpt => {
+        inpt.addEventListener("blur", ()=>{
+            som += parseFloat(1/inpt.value);
+            div =(1/som).toFixed(5);
+            division = parseFloat(div)
+      }); 
+  });
+
+  unites.forEach(unite=> {
+  // console.log(unite)
+    unite.addEventListener('change',(e)=>{
+   
+   switch (e.target.options[unite.selectedIndex].value) {
+ 
+     case "ohms":
+         grande= division + " Ω";
+         console.log(grande)
+        break; 
+ 
+         case "kilo":
+             grande= division*1000 + " Ω" ;
+            break; 
+ 
+            case "mega":
+             grande= division*1000000 + " Ω";
+            break; 
+ 
+         default:  null;
+            break; 
+      }
+ });
+ });
+
+  valeur.addEventListener("click", ()=>{
+   sommes.textContent = grande;
+});
+
+});
