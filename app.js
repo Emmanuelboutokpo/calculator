@@ -756,3 +756,19 @@ document.body.addEventListener('mousemove',(e)=>{
          eye.style.transform = "rotate(" + rot + "deg)"
      }) ;
 })
+
+/*GENERATEUR DE BLAGUE AVEC API BLABLAGE*/
+const header=document.querySelector("#header");
+const content=document.querySelector("#content");
+ function getDock(){
+      fetch("https://api.blablagues.net/?rub=blagues")
+      .then((res) => res.json())
+      .then((data) => {
+           let donnes =data.data.content;
+           header.textContent=donnes.text_head;
+           content.textContent =donnes.text !== " " ? donnes.text : donnes.text_hidden ;
+      })
+ }
+getDock()
+
+     document.body.addEventListener("click", getDock)
