@@ -771,4 +771,7 @@ const content=document.querySelector("#content");
  }
 getDock()
 
-     document.body.addEventListener("click", getDock)
+     document.body.addEventListener("click", getDock);
+
+     /*EMOJI SECOND*/
+     "PAS DE JS"
