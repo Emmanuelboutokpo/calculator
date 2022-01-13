@@ -920,3 +920,58 @@ body{
   top: 30px;
   transform: translate(-36%,-36%);
 }
+
+/*DARK MODE*/
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.toggleButton{
+  width: 50px;
+  height: 25px;
+  border: 2px solid rgb(0, 0, 0);
+  border-radius: 15px;
+  position: absolute;
+  top: 5px;
+  right: 30px;
+  transition: 0.5s;
+  cursor: pointer;
+}
+
+.toggleButton::before{
+  content: " ";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 20px;
+  height: 22px;
+  border-radius: 50%;
+  transition: 0.5s;
+  background: #000;
+}
+.active{
+ border: 2px solid #fff;
+transition: 0.5s;
+}
+.active::before{
+  left: 27px;
+  transition: 00.5s;
+ background: #fff;
+}
+
+.night{
+ background: #00151f;
+}
+
+.container{
+  text-align: justify;
+  margin-top: 35px;
+  padding: 10px;
+}
+
+.affi{
+ color: white;
+ transition: 0.5s;
+}

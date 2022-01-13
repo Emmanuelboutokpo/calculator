@@ -775,3 +775,12 @@ getDock()
 
      /*EMOJI SECOND*/
      "PAS DE JS"
+
+     /*DARK MODE */
+     const toggleButton = document.querySelector(".toggleButton");
+     const container =document.querySelector(".container")
+     toggleButton.addEventListener("click", ()=>{
+          toggleButton.classList.toggle("active");
+          document.body.classList.toggle("night");
+          container.classList.toggle("affi")
+     })
