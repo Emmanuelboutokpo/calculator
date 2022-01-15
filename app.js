@@ -784,3 +784,45 @@ getDock()
           document.body.classList.toggle("night");
           container.classList.toggle("affi")
      })
+
+     /** Users API */
+     let userData =[];
+ 
+     const fetchUser = async ( ) =>{
+       await   fetch("https://randomuser.me/api/?results=24")
+                   .then((res) => res.json())
+                   .then((data) => userData = data.results);
+          console.log(userData);
+      }
+     
+      const userDisplay = async () =>{
+           await   fetchUser();
+     
+           const dateParser =(data) =>{
+               let newDate =new Date(data).toLocaleDateString("fr-FR",{
+                   year : "numeric",
+                   month : "long",
+                   day : "numeric"
+               })
+               return newDate
+           }
+           
+           const dayDate  = (date) =>{
+             const d = new Date();
+             const todays = Date.parse(d);
+              let stamps =Math.floor((todays-Date.parse(date)) /86400000);
+              return stamps 
+           }
+     
+          document.body.innerHTML = userData.map((user) =>
+             ` 
+                  <div class="card">
+                  <img src=${user.picture.large} alt= "photo de ${user.name.last}">
+                      <h3> ${user.name.first} </h3>
+                      <p> ${user.location.city} , ${dateParser(user.dob.date)} <p>
+                      <em> Membre depuis : ${dayDate(user.registered.date)} jours</em>
+                 </div>
+             `
+          )
+      }
+      userDisplay()
