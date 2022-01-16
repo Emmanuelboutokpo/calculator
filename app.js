@@ -826,3 +826,58 @@ getDock()
           )
       }
       userDisplay()
+
+      /** Meal API */
+      let mealsData =[];
+const results = document.getElementById("result");
+const forms = document.querySelector('form');
+const inputs = document.querySelector("input");
+
+const  fetchMeals = async (search) =>{
+   await fetch("https://www.themealdb.com/api/json/v1/1/search.php?s=" +search)
+    .then((res) => res.json())
+    .then((data) => mealsData =data.meals);
+
+console.log(mealsData);
+}
+
+const mealsDisplays = () =>{
+    if (mealsData === null) {
+        results.innerHTML = "<h2> Aucun résultat </h2>";
+    } 
+    else 
+    {
+        mealsData.length=12;
+          results.innerHTML = mealsData.map((mealData) => {
+
+            let ingredients = [];
+
+            for (let i = 0; i < 21; i++) {
+                if (mealData[`strIngredient${i}`]) {
+                    let ingredient =mealData[`strIngredient${i}`];
+                    let measure =mealData[`strIngredient${i}`];
+                    ingredients.push(`<li> ${ingredient} - ${measure} </li>`)
+                }  
+            }
+
+             return `
+              <li class="card">
+              <h2>${mealData.strMeal}</h2>
+              <p> ${mealData.strArea} </p>
+              <img src = ${mealData.strMealThumb} alt = "photo ${mealData.strMeal}">
+               <ul> ${ingredients.join(" ")}</ul>
+              </li>     
+              `
+            }).join(" ");
+        
+    }
+}
+inputs.addEventListener("input", (e)=>{
+    if (e.target.value !== " ") {
+        fetchMeals(e.target.value);
+    }
+})
+forms.addEventListener("submit", (e)=>{
+    e.preventDefault();
+    mealsDisplays();
+})
