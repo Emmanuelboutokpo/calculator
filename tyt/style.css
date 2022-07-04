@@ -1,0 +1,10 @@
+*{
+    box-sizing: border-box;
+}
+.app{
+    display: grid;
+    grid-template-columns: repeat(2, 50%);
+    grid-template-rows: repeat(9,50%);
+    row-gap: 20px;
+    column-gap: 20px;
+}
